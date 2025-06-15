@@ -1,4 +1,5 @@
 // import { SidebarTrigger } from '@/components/ui/sidebar'
+import Link from 'next/link'
 import React from 'react'
 
 function NavBar() {
@@ -21,9 +22,11 @@ function NavBar() {
 
   {/* Right Section: Sign In Button */}
   <div className="w-[200px] flex justify-end">
-    <button className="px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700 transition">
+    <Link href="/signin">
+    <button className="px-4 py-2 cursor-pointer text-white bg-blue-600 rounded-md hover:bg-blue-700 transition">
       Sign In
     </button>
+    </Link>
   </div>
 </div>
 
