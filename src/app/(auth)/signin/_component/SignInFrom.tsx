@@ -14,7 +14,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Card } from "@/components/ui/card";
+// import { Card } from "@/components/ui/card";
 import Link from "next/link";
 
 const formSchema = z.object({
@@ -25,7 +25,6 @@ const formSchema = z.object({
 });
 
 export function SignInFrom() {
-  // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -34,12 +33,10 @@ export function SignInFrom() {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
     console.log(values);
   }
   return (
-    <Card className="p-10 mx-auto shadow-xl rounded-2xl bg-white">
+    <div className="p-5 min-w-xl mx-auto shadow-xl rounded-2xl bg-white">
   <Form {...form}>
     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
       <FormField
@@ -87,8 +84,8 @@ export function SignInFrom() {
       </Button>
     </form>
   </Form>
-  <div>Don&apos;t have an accout/<Link className="text-blue-800 hover: underline" href="/signup">SignUp</Link></div>
-</Card>
+  <div className="mt-2">Don&apos;t have an accout/<Link className="text-blue-800 hover: underline" href="/signup">SignUp</Link></div>
+</div>
 
   );
 }
